@@ -12,11 +12,11 @@
           Ajouter au panier
         </button>
 
-        <a class="btn btn-sm btn-default" [routerLink]="['/catalog/book/', item.previousId]">
+        <a *ngIf="item.previousId" class="btn btn-sm btn-default" [routerLink]="['/catalog/book/', item.previousId]">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
 
-        <a class="btn btn-sm btn-default" [routerLink]="['/catalog/book/', item.nextId]">
+        <a *ngIf="item.nextId" class="btn btn-sm btn-default" [routerLink]="['/catalog/book/', item.nextId]">
           <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
 
