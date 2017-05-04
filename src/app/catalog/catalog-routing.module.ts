@@ -10,7 +10,8 @@ const routes = [
     component: CatalogRootComponent,
     children: [
       {path: 'list', component: CatalogListComponent },
-      {path: 'book/:id', component: CatalogBookComponent }
+      {path: 'book/:id', component: CatalogBookComponent },
+      {path: '', redirectTo: 'list', pathMatch: 'full'}
     ]
   }
 ];
@@ -18,6 +19,9 @@ const routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 
