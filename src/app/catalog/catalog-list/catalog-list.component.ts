@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/Subscription";
 import {Book} from "../../core/model/book.model";
 import {CatalogService} from "../../core/services/catalog.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-catalog-list',
@@ -13,11 +14,16 @@ export class CatalogListComponent implements OnInit, OnDestroy {
   public books: Book[];
 
 
-  constructor(private catalog: CatalogService) {}
+  constructor(
+    private catalog: CatalogService,
+    private title: Title
+  ) {}
 
   ngOnInit() {
     this.subscription = this.catalog.getList()
       .subscribe(books => this.books = books);
+
+    this.title.setTitle('Catalogue');
   }
 
   ngOnDestroy() {
