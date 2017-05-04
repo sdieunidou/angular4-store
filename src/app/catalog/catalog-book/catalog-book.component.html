@@ -2,15 +2,24 @@
   <div class="panel-heading">
     <h2 class="panel-title">
         <span class="label label-info">
-          {{item.price|currency: 'EUR': true}}
+          {{item.book.price|currency: 'EUR': true}}
         </span>
         &nbsp;
-        {{item.title}}
+        {{item.book.title}}
 
       <div class="pull-right">
         <button class="btn btn-primary btn-sm">
           Ajouter au panier
         </button>
+
+        <a class="btn btn-sm btn-default" [routerLink]="['/catalog/book/', item.previousId]">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+
+        <a class="btn btn-sm btn-default" [routerLink]="['/catalog/book/', item.nextId]">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+
         <a class="btn btn-sm btn-default" [routerLink]="['/catalog/list']">Retour au Catalogue</a>
       </div>
       <div class="clearfix"></div>
@@ -19,25 +28,25 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-2">
-        <img width="100%" [src]="item.image" />
+        <img width="100%" [src]="item.book.image" />
       </div>
       <div class="col-md-10">
 
-        <div [innerHTML]="item.description"></div>
+        <div [innerHTML]="item.book.description"></div>
 
         <ul class="list-group">
           <li class="list-group-item">
-            <span class="badge">{{item.author}}</span>
+            <span class="badge">{{item.book.author}}</span>
             <b>Auteur</b>
           </li>
 
           <li class="list-group-item">
-            <span class="badge">{{item.rating}} / 5</span>
+            <span class="badge">{{item.book.rating}} / 5</span>
             <b>Note</b>
           </li>
 
           <li class="list-group-item">
-            <span class="badge">{{item.pages}}</span>
+            <span class="badge">{{item.book.pages}}</span>
             <b>Pages</b>
           </li>
         </ul>

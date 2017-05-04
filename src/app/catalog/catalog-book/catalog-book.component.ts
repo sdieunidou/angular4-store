@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CatalogService} from "../../core/services/catalog.service";
+import {BookPrevNext, CatalogService} from "../../core/services/catalog.service";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Book} from "../../core/model/book.model";
@@ -13,7 +13,7 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./catalog-book.component.css']
 })
 export class CatalogBookComponent implements OnInit {
-  public book$: Observable<Book>;
+  public book$: Observable<BookPrevNext>;
 
   constructor(
     private catalog: CatalogService,
@@ -26,7 +26,7 @@ export class CatalogBookComponent implements OnInit {
       .switchMap(
         params => this.catalog.getBook(params['id'])
       )
-      .do(book => this.title.setTitle(book.title));
+      .do(book => this.title.setTitle(book.book.title));
 
     /*
       this.subscription = this.route.params
