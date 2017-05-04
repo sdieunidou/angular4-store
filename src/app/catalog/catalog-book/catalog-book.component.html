@@ -22,6 +22,8 @@
       </div>
       <div class="col-md-10">
 
+        <div [innerHTML]="item.description"></div>
+
         <ul class="list-group">
           <li class="list-group-item">
             <span class="badge">{{item.author}}</span>
@@ -38,8 +40,6 @@
             <b>Pages</b>
           </li>
         </ul>
-
-        <div [innerHTML]="item.description"></div>
 
       </div>
     </div>
