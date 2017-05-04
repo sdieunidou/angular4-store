@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>
+        <img [src]="book.image" [alt]="book.title" class="img-responsive" />
+      </td>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>
+        {{book.rating}}
+      </td>
+      <td class="text-right">
+        <span class="label label-info">{{book.price|currency: 'EUR':true }}</span>
+      </td>
+      <td class="text-right">
+        <button class="btn btn-sm btn-primary">Ajouter</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
