@@ -9,7 +9,7 @@
       </td>
       <td>{{book.author}}</td>
       <td>
-        <span class="badge">{{book.rating}} / 5</span>
+        <span class="badge">{{book.rating|textRating}}</span>
       </td>
       <td class="text-right">
         <span class="label label-info">{{book.price|currency: 'EUR':true }}</span>
