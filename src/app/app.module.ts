@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {ServicesModule} from "./core/services/services.module";
 import {CatalogModule} from "./catalog/catalog.module";
-import {CatalogService} from "./core/services/catalog.service";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import {CatalogService} from "./core/services/catalog.service";
     FormsModule,
     HttpModule,
     CatalogModule,
-    ServicesModule
+    ServicesModule,
+    AppRoutingModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}
