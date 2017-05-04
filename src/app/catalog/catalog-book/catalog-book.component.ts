@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Book} from "../../core/model/book.model";
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/do';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-catalog-book',
@@ -15,13 +17,16 @@ export class CatalogBookComponent implements OnInit {
 
   constructor(
     private catalog: CatalogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ) { }
 
   ngOnInit() {
-    this.book$ = this.route.params.switchMap(
-      params => this.catalog.getBook(params['id'])
-    );
+    this.book$ = this.route.params
+      .switchMap(
+        params => this.catalog.getBook(params['id'])
+      )
+      .do(book => this.title.setTitle(book.title));
 
     /*
       this.subscription = this.route.params
