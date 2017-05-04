@@ -22,5 +22,13 @@ export class CatalogBookComponent implements OnInit {
     this.book$ = this.route.params.switchMap(
       params => this.catalog.getBook(params['id'])
     );
+
+    /*
+      this.subscription = this.route.params
+       .switchMap(
+          params => this.catalog.getBook(params['id'])
+       )
+       .subscribe(book => this.book = book);
+     */
   }
 }
