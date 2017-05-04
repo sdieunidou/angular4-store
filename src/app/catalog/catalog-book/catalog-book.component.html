@@ -1,3 +1,47 @@
-<p>
-  catalog-book works!
-</p>
+<div class="panel panel-default" *ngIf="book|async as item">
+  <div class="panel-heading">
+    <h2 class="panel-title">
+        <span class="label label-info">
+          {{item.price|currency: 'EUR': true}}
+        </span>
+        &nbsp;
+        {{item.title}}
+
+      <div class="pull-right">
+        <button class="btn btn-primary btn-sm">
+          Ajouter au panier
+        </button>
+      </div>
+      <div class="clearfix"></div>
+    </h2>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">
+        <img [src]="item.image" />
+      </div>
+      <div class="col-md-10">
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge">{{item.author}}</span>
+            <b>Auteur</b>
+          </li>
+
+          <li class="list-group-item">
+            <span class="badge">{{item.rating}} / 5</span>
+            <b>Note</b>
+          </li>
+
+          <li class="list-group-item">
+            <span class="badge">{{item.pages}}</span>
+            <b>Pages</b>
+          </li>
+        </ul>
+
+        <div [innerHTML]="item.description"></div>
+
+      </div>
+    </div>
+  </div>
+</div>

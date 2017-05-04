@@ -4,7 +4,9 @@
       <td>
         <img [src]="book.image" [alt]="book.title" class="img-responsive" />
       </td>
-      <td>{{book.title}}</td>
+      <td>
+        <a [routerLink]="['/catalog/book/', book._id.$oid]">{{book.title}}</a>
+      </td>
       <td>{{book.author}}</td>
       <td>
         {{book.rating}}
