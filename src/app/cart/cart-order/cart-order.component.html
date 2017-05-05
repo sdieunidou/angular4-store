@@ -29,7 +29,16 @@
             <label>
               Nom
             </label>
-            <input class="form-control" type="text" name="lastName" [(ngModel)]="data.identity.lastName" required minlength="2" />
+            <input class="form-control" type="text" name="lastName"
+                   [(ngModel)]="data.identity.lastName"
+                   required
+                   minlength="2"
+                   #ngModelLastName="ngModel"
+            />
+            <span class="error text-danger">
+              <span *ngIf="ngModelLastName.hasError('required')">Champ obligatoire</span>
+              <span *ngIf="ngModelLastName.hasError('minlength')">Trop court</span>
+            </span>
           </div>
 
           <div class="form-group">
@@ -55,28 +64,43 @@
             <label>
               Numéro et rue
             </label>
-            <input class="form-control" type="text" name="address" required [(ngModel)]="data.shipping.address" />
+            <input class="form-control" type="text" name="address" [(ngModel)]="data.shipping.address" />
           </div>
 
           <div class="form-group">
             <label>
               Code Postal
             </label>
-            <input class="form-control" type="text" name="postalCode" [(ngModel)]="data.shipping.postalCode" required pattern="[0-9]{5}" />
+            <input class="form-control" type="text" name="postalCode"
+                   [(ngModel)]="data.shipping.postalCode"
+                   required pattern="[0-9]{5}"
+                   #ngModelPostalcode="ngModel"
+            />
+            <span class="error text-danger">
+              <span *ngIf="ngModelPostalcode.hasError('required')">Champ obligatoire</span>
+              <span *ngIf="ngModelPostalcode.hasError('pattern')">Format invalide (ex: 34000)</span>
+            </span>
           </div>
 
           <div class="form-group">
             <label>
               Ville
             </label>
-            <input class="form-control" type="text" name="city" [(ngModel)]="data.shipping.city" required />
+            <input class="form-control" type="text" name="city"
+                   [(ngModel)]="data.shipping.city"
+                   required
+                   #ngModelCity="ngModel"
+            />
+            <span class="error text-danger">
+              <span *ngIf="ngModelCity.hasError('required')">Champ obligatoire</span>
+            </span>
           </div>
 
           <div class="form-group">
             <label>
               Pays
             </label>
-            <input class="form-control" type="text" name="country" [(ngModel)]="data.shipping.country" required />
+            <input class="form-control" type="text" name="country" [(ngModel)]="data.shipping.country" />
           </div>
 
         </div>
