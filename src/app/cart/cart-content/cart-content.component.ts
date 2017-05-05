@@ -6,6 +6,7 @@ import {ReduceUtil} from "../../core/services/reduce.utils";
   selector: 'app-cart-content',
   templateUrl: './cart-content.component.html',
   styleUrls: ['./cart-content.component.css']
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartContentComponent implements OnInit {
 

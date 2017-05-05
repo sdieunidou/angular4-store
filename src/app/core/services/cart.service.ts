@@ -12,7 +12,12 @@ export class CartService {
   ) { }
 
   add(book: Book, quantity: number = 1) {
-    this.rows.push(new CartRow(book));
+    const found = this.rows.filter(r => r.book._id.$oid === book._id.$oid)[0];
+    if (found) {
+      found.quantity += quantity;
+    } else {
+      this.rows.push(new CartRow(book, quantity));
+    }
   }
 
   remove(row) {
