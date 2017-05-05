@@ -2,7 +2,12 @@
   Compléter ma commande
 </h1>
 
-<form>
+<pre>{{data|json}}</pre>
+<p>
+  <button (click)="log(form)">Log</button>
+</p>
+
+<form #form="ngForm">
   <div class="row">
     <div class="col-md-6">
       <div class="panel panel-default">
@@ -24,7 +29,7 @@
             <label>
               Nom
             </label>
-            <input class="form-control" type="text" name="lastName" [(ngModel)]="data.identity.lastName" />
+            <input class="form-control" type="text" name="lastName" [(ngModel)]="data.identity.lastName" required minlength="2" />
           </div>
 
           <div class="form-group">
@@ -50,28 +55,28 @@
             <label>
               Numéro et rue
             </label>
-            <input class="form-control" type="text" name="address" [(ngModel)]="data.shipping.address" />
+            <input class="form-control" type="text" name="address" required [(ngModel)]="data.shipping.address" />
           </div>
 
           <div class="form-group">
             <label>
               Code Postal
             </label>
-            <input class="form-control" type="text" name="postalCode" [(ngModel)]="data.shipping.postalCode" />
+            <input class="form-control" type="text" name="postalCode" [(ngModel)]="data.shipping.postalCode" required pattern="[0-9]{5}" />
           </div>
 
           <div class="form-group">
             <label>
               Ville
             </label>
-            <input class="form-control" type="text" name="city" [(ngModel)]="data.shipping.city" />
+            <input class="form-control" type="text" name="city" [(ngModel)]="data.shipping.city" required />
           </div>
 
           <div class="form-group">
             <label>
               Pays
             </label>
-            <input class="form-control" type="text" name="country" [(ngModel)]="data.shipping.country" />
+            <input class="form-control" type="text" name="country" [(ngModel)]="data.shipping.country" required />
           </div>
 
         </div>

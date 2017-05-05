@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-cart-order',
@@ -18,6 +19,10 @@ export class CartOrderComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Finaliser ma commande');
+  }
+
+  log(ngForm: NgForm) {
+    console.log(ngForm);
   }
 
 }

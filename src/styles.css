@@ -5,3 +5,8 @@ body {
 .big {
   color: green;
 }
+
+input.ng-invalid:not(.ng-pristine):not(.ng-untouched) {
+  color: red;
+  border: 1px solid red;
+}
