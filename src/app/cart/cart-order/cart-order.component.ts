@@ -23,4 +23,8 @@ export class CartOrderComponent implements OnInit {
     this.title.setTitle('Finaliser ma commande');
   }
 
+  save(data) {
+    console.log(data);
+  }
+
 }
