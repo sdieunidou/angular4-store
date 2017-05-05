@@ -19,6 +19,7 @@
         <th>Quantité</th>
         <th>Montant HT</th>
         <th>Montant TTC</th>
+        <th></th>
       </tr>
       </thead>
       <tbody *ngFor="let row of getList()">
@@ -29,6 +30,7 @@
         <td class="right"><input type="number" min="1" [(ngModel)]="row.quantity"></td>
         <td class="right">{{row.ht() | currency: 'EUR':true}}</td>
         <td class="right">{{row.ttc() | currency: 'EUR':true}}</td>
+        <td><button class="btn btn-sm btn-danger" (click)="remove(row)">Supprimer</button></td>
       </tr>
       </tbody>
       <tfoot>

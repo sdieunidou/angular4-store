@@ -38,4 +38,8 @@ export class CartContentComponent implements OnInit {
   isBig(amount) {
     return amount >= 100;
   }
+
+  remove(row) {
+    this.cart.remove(row);
+  }
 }
