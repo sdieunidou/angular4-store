@@ -4,6 +4,7 @@ import { TextRatingPipe } from './text-rating.pipe';
 import { HtmlRatingPipe } from './html-rating.pipe';
 import { SmallCartComponent } from './small-cart/small-cart.component';
 import { ErrorComponent } from './error/error.component';
+import { ControlComponent } from './control/control.component';
 
 @NgModule({
   imports: [
@@ -13,13 +14,15 @@ import { ErrorComponent } from './error/error.component';
     TextRatingPipe,
     HtmlRatingPipe,
     SmallCartComponent,
-    ErrorComponent
+    ErrorComponent,
+    ControlComponent
   ],
   exports: [
     TextRatingPipe,
     HtmlRatingPipe,
     SmallCartComponent,
-    ErrorComponent
+    ErrorComponent,
+    ControlComponent
   ]
 })
 export class WidgetsModule { }
