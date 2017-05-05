@@ -1,4 +1,4 @@
-import {Component, ContentChild, Input, OnInit} from '@angular/core';
+import {Component, ContentChild, Input, OnInit, Optional} from '@angular/core';
 import {NgForm, NgModel} from "@angular/forms";
 
 @Component({
@@ -12,11 +12,11 @@ export class ControlComponent implements OnInit {
   @ContentChild(NgModel) control: NgModel;
 
   constructor(
-    public form: NgForm
+    @Optional() public form: NgForm
   ) { }
 
   ngOnInit() {
-    
+
   }
 
 }
