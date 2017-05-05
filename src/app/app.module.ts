@@ -8,6 +8,7 @@ import {ServicesModule} from "./core/services/services.module";
 import {CatalogModule} from "./catalog/catalog.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {CartModule} from "./cart/cart.module";
+import {WidgetsModule} from "./core/widgets/widgets.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {CartModule} from "./cart/cart.module";
     HttpModule,
     CatalogModule,
     ServicesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    WidgetsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}

@@ -2,12 +2,7 @@
   Compléter ma commande
 </h1>
 
-<pre>{{data|json}}</pre>
-<p>
-  <button (click)="log(form)">Log</button>
-</p>
-
-<form #form="ngForm" [class.submitted]="ngForm.submitted">
+<form #form="ngForm" [class.submitted]="form.submitted" (ngSubmit)="save(data)">
   <div class="row">
     <div class="col-md-6">
       <div class="panel panel-default">
@@ -35,10 +30,7 @@
                    minlength="2"
                    #ngModelLastName="ngModel"
             />
-            <span class="error text-danger" *ngIf="ngModelLastName.invalid && (ngModelLastName.touched || form.submitted)">
-              <span *ngIf="ngModelLastName.hasError('required')">Champ obligatoire</span>
-              <span *ngIf="ngModelLastName.hasError('minlength')">Trop court</span>
-            </span>
+            <app-error [control]="ngModelLastName" [form]="form"></app-error>
           </div>
 
           <div class="form-group">
@@ -76,10 +68,7 @@
                    required pattern="[0-9]{5}"
                    #ngModelPostalcode="ngModel"
             />
-            <span class="error text-danger" *ngIf="ngModelPostalcode.invalid && (ngModelPostalcode.touched || form.submitted)">
-              <span *ngIf="ngModelPostalcode.hasError('required')">Champ obligatoire</span>
-              <span *ngIf="ngModelPostalcode.hasError('pattern')">Format invalide (ex: 34000)</span>
-            </span>
+            <app-error [control]="ngModelPostalcode" [form]="form"></app-error>
           </div>
 
           <div class="form-group">
@@ -91,9 +80,7 @@
                    required
                    #ngModelCity="ngModel"
             />
-            <span class="error text-danger" *ngIf="ngModelCity.invalid && (ngModelCity.touched || form.submitted)">
-              <span *ngIf="ngModelCity.hasError('required')">Champ obligatoire</span>
-            </span>
+            <app-error [control]="ngModelCity" [form]="form"></app-error>
           </div>
 
           <div class="form-group">
@@ -110,7 +97,7 @@
   </div>
 
   <div class="text-center">
-    <button class="btn btn-block btn-primary">Poursuivre la commande</button>
+    <button type="submit" class="btn btn-block btn-primary" [disabled]="form.inv">Poursuivre la commande</button>
   </div>
 
 </form>

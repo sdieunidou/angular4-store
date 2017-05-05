@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {NgForm} from "@angular/forms";
 
@@ -8,6 +8,8 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./cart-order.component.css']
 })
 export class CartOrderComponent implements OnInit {
+  @ViewChild('form') form: NgForm;
+
   data = {
     identity: {},
     shipping: {}
@@ -19,10 +21,6 @@ export class CartOrderComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Finaliser ma commande');
-  }
-
-  log(ngForm: NgForm) {
-    console.log(ngForm);
   }
 
 }

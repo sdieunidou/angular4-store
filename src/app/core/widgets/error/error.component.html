@@ -1,0 +1,5 @@
+<span class="error text-danger" *ngIf="control.invalid && (control.touched || form.submitted)">
+  <span *ngIf="control.hasError('required')">Champ obligatoire</span>
+  <span *ngIf="control.hasError('minlength')">Trop court</span>
+  <span *ngIf="control.hasError('pattern')">Format invalide</span>
+</span>
