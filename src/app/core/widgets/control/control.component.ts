@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ContentChild, Input, OnInit} from '@angular/core';
+import {NgForm, NgModel} from "@angular/forms";
 
 @Component({
   selector: 'app-control',
@@ -8,6 +9,8 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ControlComponent implements OnInit {
 
   @Input() label: string;
+  @ContentChild(NgModel) control: NgModel;
+  @ContentChild(NgForm) form: NgForm;
 
   constructor() { }
 
