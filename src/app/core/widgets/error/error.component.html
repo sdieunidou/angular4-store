@@ -1,4 +1,4 @@
-<span class="error text-danger" *ngIf="control.invalid && (control.touched || form.submitted)">
+<span class="error text-danger" *ngIf="control.invalid && (control.touched || form?.submitted)">
   <span *ngIf="control.hasError('required')">Champ obligatoire</span>
   <span *ngIf="control.hasError('minlength')">
     Il faut au moins {{control.errors['minlength'].requiredLength}} caractères
