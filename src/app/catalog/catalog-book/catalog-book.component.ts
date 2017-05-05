@@ -6,6 +6,7 @@ import {Book} from "../../core/model/book.model";
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 import {Title} from "@angular/platform-browser";
+import {ActionService} from "../../core/services/action.service";
 
 @Component({
   selector: 'app-catalog-book',
@@ -18,7 +19,8 @@ export class CatalogBookComponent implements OnInit {
   constructor(
     private catalog: CatalogService,
     private route: ActivatedRoute,
-    private title: Title
+    private title: Title,
+    private buyAction: ActionService
   ) { }
 
   ngOnInit() {
@@ -35,5 +37,9 @@ export class CatalogBookComponent implements OnInit {
        )
        .subscribe(book => this.book = book);
      */
+  }
+
+  addToCard(book: Book) {
+    this.buyAction.addToCard(book);
   }
 }
