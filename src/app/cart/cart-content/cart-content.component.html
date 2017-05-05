@@ -42,5 +42,10 @@
       </tr>
       </tfoot>
     </table>
+
+    <div class="text-right" *ngIf="!cart.isEmpty()">
+      <button (click)="action.orderCart()" class="btn btn-lg btn-success">Passer la commande</button>
+    </div>
+
   </div>
 </div>

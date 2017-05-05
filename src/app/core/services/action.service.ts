@@ -16,4 +16,8 @@ export class ActionService {
     this.router.navigate(['/cart/content']);
   }
 
+  orderCart() {
+    this.router.navigate(['/cart/order']);
+  }
+
 }
