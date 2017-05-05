@@ -15,7 +15,7 @@
         <span class="label label-info">{{book.price|currency: 'EUR':true }}</span>
       </td>
       <td class="text-right">
-        <button class="btn btn-sm btn-primary">Ajouter</button>
+        <button class="btn btn-sm btn-primary" (click)="addToCard(book)">Ajouter</button>
       </td>
     </tr>
   </tbody>

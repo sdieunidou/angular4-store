@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {ServicesModule} from "./core/services/services.module";
 import {CatalogModule} from "./catalog/catalog.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {CartModule} from "./cart/cart.module";
 
 @NgModule({
   declarations: [
