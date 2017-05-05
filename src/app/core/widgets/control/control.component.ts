@@ -10,11 +10,13 @@ export class ControlComponent implements OnInit {
 
   @Input() label: string;
   @ContentChild(NgModel) control: NgModel;
-  @ContentChild(NgForm) form: NgForm;
 
-  constructor() { }
+  constructor(
+    public form: NgForm
+  ) { }
 
   ngOnInit() {
+    console.log(this.control);
   }
 
 }
