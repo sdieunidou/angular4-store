@@ -7,7 +7,7 @@
   <button (click)="log(form)">Log</button>
 </p>
 
-<form #form="ngForm">
+<form #form="ngForm" [class.submitted]="ngForm.submitted">
   <div class="row">
     <div class="col-md-6">
       <div class="panel panel-default">
@@ -35,7 +35,7 @@
                    minlength="2"
                    #ngModelLastName="ngModel"
             />
-            <span class="error text-danger" *ngIf="ngModelLastName.invalid && ngModelLastName.touched">
+            <span class="error text-danger" *ngIf="ngModelLastName.invalid && (ngModelLastName.touched || form.submitted)">
               <span *ngIf="ngModelLastName.hasError('required')">Champ obligatoire</span>
               <span *ngIf="ngModelLastName.hasError('minlength')">Trop court</span>
             </span>
@@ -76,7 +76,7 @@
                    required pattern="[0-9]{5}"
                    #ngModelPostalcode="ngModel"
             />
-            <span class="error text-danger" *ngIf="ngModelPostalcode.invalid && ngModelPostalcode.touched">
+            <span class="error text-danger" *ngIf="ngModelPostalcode.invalid && (ngModelPostalcode.touched || form.submitted)">
               <span *ngIf="ngModelPostalcode.hasError('required')">Champ obligatoire</span>
               <span *ngIf="ngModelPostalcode.hasError('pattern')">Format invalide (ex: 34000)</span>
             </span>
@@ -91,7 +91,7 @@
                    required
                    #ngModelCity="ngModel"
             />
-            <span class="error text-danger" *ngIf="ngModelCity.invalid && ngModelCity.touched">
+            <span class="error text-danger" *ngIf="ngModelCity.invalid && (ngModelCity.touched || form.submitted)">
               <span *ngIf="ngModelCity.hasError('required')">Champ obligatoire</span>
             </span>
           </div>
