@@ -11,7 +11,7 @@
             Identité du client
           </h2>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" ngModelGroup="identity">
 
           <div class="form-group">
             <label>
@@ -50,7 +50,7 @@
             Adresse de livraison
           </h2>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" ngModelGroup="shipping">
 
           <div class="form-group">
             <label>
@@ -84,6 +84,53 @@
               Pays
             </label>
             <input class="form-control" type="text" name="country" [(ngModel)]="data.shipping.country" />
+          </div>
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="sameAddress" [(ngModel)]="data.sameAddress" /> Même adresse de facturation
+              </label>
+            </div>
+
+          <div class="clearfix"></div>
+
+        </div>
+
+
+        <div class="panel-body" ngModelGroup="billing" *ngIf="!data.sameAddress">
+
+          <div class="form-group">
+            <label>
+              Numéro et rue
+            </label>
+            <input class="form-control" type="text" name="address" [(ngModel)]="data.billing.address" />
+          </div>
+
+          <app-control [label]="'Code Postal'">
+            <input class="form-control" type="text" name="postalCode"
+                   [(ngModel)]="data.billing.postalCode"
+                   required pattern="[0-9]{5}"
+                   #ngModelPostalcode="ngModel"
+            />
+          </app-control>
+
+          <div class="form-group">
+            <label>
+              Ville
+            </label>
+            <input class="form-control" type="text" name="city"
+                   [(ngModel)]="data.billing.city"
+                   required
+                   #ngModelCity="ngModel"
+            />
+            <app-error [control]="ngModelCity" [form]="form"></app-error>
+          </div>
+
+          <div class="form-group">
+            <label>
+              Pays
+            </label>
+            <input class="form-control" type="text" name="country" [(ngModel)]="data.billing.country" />
           </div>
 
         </div>

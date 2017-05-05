@@ -12,7 +12,9 @@ export class CartOrderComponent implements OnInit {
 
   data = {
     identity: {},
-    shipping: {}
+    shipping: {},
+    billing: {},
+    sameAddress: true
   };
 
   constructor(
