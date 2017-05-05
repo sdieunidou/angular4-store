@@ -1,0 +1,10 @@
+<span>
+  <p *ngIf="cart.isEmpty()">
+    Votre panier est vide
+  </p>
+
+  <p>
+  {{cart.count()}} item(s) dans le panier, total:
+  {{cart.total()|currency: 'EUR': true}}
+  </p>
+</span>

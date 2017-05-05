@@ -6,8 +6,11 @@
   </div>
 
   <div class="panel-body">
+    <p class="text-center" *ngIf="cart.isEmpty()">
+      Votre panier est vide
+    </p>
 
-    <table class="table table-striped table-condensed">
+    <table class="table table-striped table-condensed" *ngIf="!cart.isEmpty()">
       <thead>
       <tr>
         <th>Titre</th>
